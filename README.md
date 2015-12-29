@@ -15,7 +15,7 @@ Running
 --
 
 ```bash
-$ docker run -e POSTGRES_PASSWORD='something' POSTGRES_USER='bilbo' POSTGRES_DB='someshite' quay.io/cluster_mailboxes/docker-alpine-postgres:latest
+$ docker run -iP -e POSTGRES_PASSWORD='something' -e POSTGRES_USER='bilbo' -e POSTGRES_DB='someshite' quay.io/cluster_mailboxes/docker-alpine-postgres:latest
 ```
 
 License

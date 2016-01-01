@@ -23,7 +23,7 @@ if [ -z "$(ls -A "$PGDATA")" ]; then
       op=ALTER
     fi
 
-    userSql="$op USER $POSTGRES_USER WITH SUPERUSER PASSWORD ${POSTGRES_PASSWORD}"
+    userSql="$op USER $POSTGRES_USER WITH SUPERUSER PASSWORD '${POSTGRES_PASSWORD}';"
     echo $userSql | gosu postgres postgres --single -jE
     echo
 
@@ -47,5 +47,7 @@ if [ -z "$(ls -A "$PGDATA")" ]; then
 
     { echo; echo "host all all 0.0.0.0/0 md5"; } >> "$PGDATA"/pg_hba.conf
 fi
+
+echo 'Starting database'
 
 exec gosu postgres "$@"

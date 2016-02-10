@@ -1,6 +1,6 @@
-FROM alpine
+FROM alpine:edge
 
-RUN apk update && apk add curl postgresql postgresql-contrib && \
+RUN apk update && apk add curl postgresql=9.5.0-r0 postgresql-contrib=9.5.0-r0 && \
     mkdir /docker-entrypoint-initdb.d && \
     curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.2/gosu-amd64" && \
     chmod +x /usr/local/bin/gosu && \

@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 chown -R postgres "$PGDATA"
 
 # Bomb out if no password set
